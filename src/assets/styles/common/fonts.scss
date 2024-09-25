@@ -1,0 +1,20 @@
+// @font-face {
+//     font-family: 'Inter';
+//     src: url('src/assets/fonts/Inter-Regular.ttf') format('truetype') ;
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+// $Inter: ("Bold": 700,
+//     "Regular": 400,
+//     "Light": 300,
+//     "BoldItalic": 750);
+
+// @each $name,
+// $weight in $Inter {
+//     @font-face {
+//         font-family: "Inter";
+//         src: url("../../fonts/Inter-#{$name}.ttf");
+//         font-weight: $weight;
+//     }
+// }
