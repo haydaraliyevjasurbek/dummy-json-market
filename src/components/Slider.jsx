@@ -11,12 +11,14 @@ import 'swiper/swiper-bundle.css';
 
 // import required modules
 import { EffectCube, Autoplay } from 'swiper/modules';
+import Loader from './ui/Loader';
 function Slider() {
-    const { topRating, categoryObj, setCategoryObj } = store();
+    const {loader, topRating, categoryObj, setCategoryObj } = store();
     
     // console.log(topRating)
     return (
         <div>
+            {loader && <Loader />}
             {topRating && <Swiper
                 effect={'cube'}
                 grabCursor={false}

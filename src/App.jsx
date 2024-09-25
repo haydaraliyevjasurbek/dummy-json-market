@@ -4,8 +4,10 @@ import useApi from './hook/useApi';
 import Categories from './pages/Categories'
 import store from './stores/store';
 import Slider from './components/Slider';
+import Loader from './components/ui/Loader';
+import TopProducts from './components/TopProducts';
 function App() {
-  const { data, getApi, loading } = useApi();
+  const { data, getApi,  } = useApi();
   const {loader, category, categoryObj, setCategoryObj, topRating, setTopRating } = store();
   useEffect(() => {
     getApi('products?limit=194');
@@ -16,36 +18,34 @@ function App() {
       localStorage.setItem('category-obj', JSON.stringify(data.products));
       const filteredProducts = data.products.filter((product) => product.rating >= 4.8);
       localStorage.setItem('top-rating', JSON.stringify(filteredProducts));
-      console.log(categoryObj);
-      // Filter products with rating >= 4.5
+      // console.log(categoryObj);
       setTopRating(filteredProducts);
     }
-  }, [data]); // data o'zgarganda ishlaydi
+  }, [data]);
 
 
-  // `beforeunload` hodisasini qo'shish
+
   useEffect(() => {
     const handleBeforeUnload = () => {
       localStorage.clear(); 
     };
-
     window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // O'chirish
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, []);
+
+
   return (
     <div className='container'>
+      {loader && <Loader />}
       <Nav/>
-      {category ? <Categories/>  : 
+      {category ? <Categories/> : 
       <>
-      {loader ? <Slider/> : ""}
-      
+      <Slider/>
+      <p className='top-rate'>TOP rating</p>
+      <TopProducts/>
       </>}
-      
-      
     </div>
   )
 }
