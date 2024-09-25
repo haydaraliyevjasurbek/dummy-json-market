@@ -57,7 +57,7 @@ function Categories() {
                         <h3>{hoveredCategory}</h3>
                         
                         {/* Kategoriya bo'yicha mahsulotlar ro'yxati */}
-                        <ul>
+                        <ul className="categories__item-name">
                             {loader && <Loader />}
 
                             {filteredProducts.map((item, index) => (

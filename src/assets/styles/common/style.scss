@@ -117,7 +117,28 @@
     }
 }
 
+.categories{
+    display: flex;
+    column-gap: 60px;
+    // justify-content: space-between;
+    height: 100%;
+    &__title{
+        display: block;
+    }
+    &__name-list{
+        list-style:circle;
+        display: block;
 
+    }
+    &__item-content{
+        display: block;
+        display: block;
+    }
+    &__item-name{
+        list-style:circle;
+        display: block;
+    }
+}
 .swiper{
     display: block;
 }
@@ -149,6 +170,7 @@
     
 }
 .category{
+    display: flex;
     &__item{
         padding:10px;
         background: #696969;

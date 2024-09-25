@@ -8,7 +8,7 @@ function useApi() {
   const [data, setdata] = useState([]);
 
   async function getApi(url) {
-    setLoader(true)
+    // setLoader(true)
     try {
       let { data } = await axios({
         method: "GET",
@@ -16,11 +16,12 @@ function useApi() {
       });
       if (data.results) {
         setdata(data.results);
-        setLoader(false)
+        // setLoader(false)
       } else {
         setdata(data);
         setLoader(false)
       }
+      
     } catch (error) {
       throw error;
     }

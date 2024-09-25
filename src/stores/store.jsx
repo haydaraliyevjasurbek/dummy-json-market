@@ -18,7 +18,7 @@ const store = create((set) => ({
     searchText: "",
     setSearchText: (value) => set({ searchText: value }),
 
-    loader: false,
+    loader: true,
     setLoader: (value) => set({ loader: value }),
 
     categoryObj: JSON.parse(localStorage.getItem('category-obj')) || [], 

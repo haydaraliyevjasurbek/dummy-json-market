@@ -41,7 +41,7 @@ function App() {
       <Nav/>
       {category ? <Categories/>  : 
       <>
-      <Slider/>
+      {loader ? <Slider/> : ""}
       
       </>}
       
