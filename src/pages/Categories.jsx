@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Link ni import qilish
 import useApi from '../hook/useApi';
 import store from '../stores/store';
 import Loader from '../components/ui/Loader';
@@ -13,7 +14,7 @@ function Categories() {
     useEffect(() => {
         getApi(`products?limit=194`);
     }, [category]);
-    // console.log(category)
+
     // Mahsulotlar mavjudligini tekshirish
     const products = data?.products || [];
 
@@ -62,7 +63,8 @@ function Categories() {
 
                             {filteredProducts.map((item, index) => (
                                 <li key={index} className="">
-                                    <a href="#" className="categories__title-link">{item.title}</a>
+                                    <Link to={`/products/${item.id}`} className="categories__title-link">{item.title}</Link>
+                                    {/* Link komponenti yordamida mahsulotga o'tish */}
                                 </li>
                             ))}
                         </ul>

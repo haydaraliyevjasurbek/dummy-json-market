@@ -1,22 +1,30 @@
 // Nav.jsx
-import React from 'react';
+import * as React from 'react';
+import { useLocation } from 'react-router-dom';
 import { CiGrid41 } from "react-icons/ci"; // category icon
 import { IoSearch } from "react-icons/io5"; // search icon
 import { IoMdClose } from "react-icons/io"; // close icon
 import { IoMdCart } from "react-icons/io"; // cart icon
 import { IoIosHeartEmpty } from "react-icons/io"; // like icon
 import store from '../stores/store';
+import Login from './Login';
+import { Link } from 'react-router-dom';
+import Breadcrumb from './ui/Breadcrumb';
 
 function Nav() {
   const { category, setCategory, searchBtn, setSearchBtn, searchText, setSearchText } = store();
-  
+  const handleCategoryToggle = (e) => {
+    e.preventDefault(); // Link xatti-harakatini oldini olish
+    setCategory(!category); // Kategoriya holatini o'zgartirish
+  };
   return (
-    <nav className="nav">
+    <>
+    <nav className="nav container">
       <a href="/">Dummy JSON</a>
       
-      <button className='nav__category-btn' onClick={() => setCategory(!category)}>
-        {!category ? <CiGrid41 className='search__icon' /> : <IoMdClose className='search__icon' />} category
-      </button>
+      <Link to="/category" className='nav__category-btn'>
+        {category ? <CiGrid41 className='search__icon' /> : <IoMdClose className='search__icon' />} category
+      </Link>
 
       <div className='nav__search-content'>
         <input 
@@ -30,10 +38,12 @@ function Nav() {
         </button>
       </div>
     
-      <a href="" className='nav__cart'><IoMdCart /> Savat</a>
+      <Link to="/cart" className='nav__cart'><IoMdCart /> Savat</Link>
       <a href="" className='nav__like'><IoIosHeartEmpty /> Tanlanganlar</a>
-      <button className='nav__login-btn'>Kirish</button>
+      <Link to="/login" className='nav__login-btn'>Kirish</Link>
     </nav>
+    <Breadcrumb/>
+    </>
   );
 }
 

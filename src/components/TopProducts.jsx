@@ -20,23 +20,26 @@ function TopProducts() {
   };
 
   return (
+    <>
+    {visibleProducts < topRating.length && (
+        <button onClick={handleShowMore}>Ko'proq ko'rsatish</button>
+      )}
     <div className="product">
       {/* topRating massiv bo'lsa, map() orqali har bir mahsulotni Product komponentida render qilamiz */}
       {topRating.slice(0, visibleProducts).map((product, index) => (
         <Product
           key={index} // React uchun noyob key
-          name={product.name} 
+          name={product.name || product.title} 
           price={product.price} 
           rating={product.rating} 
-          imgUrl={product.images[0]} 
+          imgUrl={product.images[0] || product.image || product.img} 
         />
       ))}
 
       {/* Agar ko'rsatish uchun qolgan mahsulotlar bo'lsa, "Ko'proq ko'rsatish" tugmasini ko'rsatamiz */}
-      {visibleProducts < topRating.length && (
-        <button onClick={handleShowMore}>Ko'proq ko'rsatish</button>
-      )}
+      
     </div>
+    </>
   );
 }
 

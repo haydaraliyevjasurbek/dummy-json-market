@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import store from '../stores/store';
-
+import useApi from '../hook/useApi';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,9 +12,14 @@ import 'swiper/swiper-bundle.css';
 // import required modules
 import { EffectCube, Autoplay } from 'swiper/modules';
 import Loader from './ui/Loader';
+import { Link } from 'react-router-dom';
 function Slider() {
-    const {loader, topRating, categoryObj, setCategoryObj } = store();
-    
+    const {loader, topRating, categoryObj, setCategoryObj, categoryList, setCategoryList, } = store();
+    const { data, getApi, loading } = useApi();
+    useEffect(() => {
+        getApi(`products?limit=194`);
+
+    }, []);
     // console.log(topRating)
     return (
         <div>
@@ -86,15 +91,15 @@ function Slider() {
                 modules={[EffectCube, Autoplay]}
                 className="category"
             >
+                {/* {data.map((item, index) => {
+                    return (
+                        <SwiperSlide key={index} className="slider__item" >
+                            <Link to="/" className="slider__title">{item}</Link>
+                        </SwiperSlide>
+                    );
+                })} */}
                 <SwiperSlide className="category__item">Slide 1</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 2</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 3</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 4</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 5</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 6</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 7</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 8</SwiperSlide>
-                <SwiperSlide className="category__item">Slide 9</SwiperSlide>
+            
             </Swiper>
 
         </div>

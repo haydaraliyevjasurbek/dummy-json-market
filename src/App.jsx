@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { router } from "./router";
 import Nav from './components/Nav'
 import useApi from './hook/useApi';
 import Categories from './pages/Categories'
 import store from './stores/store';
-import Slider from './components/Slider';
 import Loader from './components/ui/Loader';
 import TopProducts from './components/TopProducts';
+import Login from './components/Login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import ProductDetail from './components/ProductDetail';
+import SignUp from './components/SignUp';
 function App() {
   const { data, getApi,  } = useApi();
   const {loader, category, categoryObj, setCategoryObj, topRating, setTopRating } = store();
@@ -25,27 +30,29 @@ function App() {
 
 
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.clear(); 
-    };
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleBeforeUnload = () => {
+  //     const userAlet = alert("Chiqmoqchimisiz?")
+  //     localStorage.clear(); 
+  //   };
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []);
 
-
+  const [login, setLogin] = useState(false)
   return (
-    <div className='container'>
-      {loader && <Loader />}
-      <Nav/>
-      {category ? <Categories/> : 
-      <>
-      <Slider/>
-      <p className='top-rate'>TOP rating</p>
-      <TopProducts/>
-      </>}
+    <div className="container">
+    <Router>
+    {loader && <Loader />}
+     <Nav />
+      <Routes>
+        {router.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
     </div>
   )
 }

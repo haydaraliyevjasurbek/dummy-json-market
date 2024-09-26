@@ -245,3 +245,94 @@
         color: #fff;
     }
 }
+.login {
+    &__title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    &__button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  .signup {
+    &__title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    &__button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
+  .breadcrumb {
+    &__list {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    &__item {
+      margin-right: 10px;
+  
+      &:not(:last-child)::after {
+        content: "/";
+        margin-left: 10px;
+      }
+    }
+  
+    &__link {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.2s;
+  
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  }
+  
