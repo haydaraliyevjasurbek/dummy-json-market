@@ -20,7 +20,7 @@ function Nav() {
   return (
     <>
     <nav className="nav container">
-      <a href="/">Dummy JSON</a>
+      <a href="/">DDummy JSON</a>
       
       <Link to="/category" className='nav__category-btn'>
         {category ? <CiGrid41 className='search__icon' /> : <IoMdClose className='search__icon' />} category
