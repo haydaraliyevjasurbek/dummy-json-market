@@ -17,10 +17,10 @@ function Slider() {
     const {loader, topRating, categoryObj, setCategoryObj, categoryList, setCategoryList, } = store();
     const { data, getApi, loading } = useApi();
     useEffect(() => {
-        getApi(`products?limit=194`);
+        getApi(`products/category-list`);
 
     }, []);
-    // console.log(topRating)
+
     return (
         <div>
             {loader && <Loader />}
@@ -44,7 +44,7 @@ function Slider() {
                 {topRating.map((item, index) => {
                     return (
                         <SwiperSlide key={index} className="slider__item" >
-                            <p className="slider__title">{item.brand || item.category}</p>
+                            <p className="slider__title">{item.brand ? item.brand : item.category}</p>
                             <img
                                 src={item.images[0]}
                                 alt=""
@@ -59,7 +59,7 @@ function Slider() {
             
 
 
-            <Swiper
+            {/* <Swiper
                 slidesPerView={1}
                 spaceBetween={10}
                 pagination={{
@@ -91,16 +91,16 @@ function Slider() {
                 modules={[EffectCube, Autoplay]}
                 className="category"
             >
-                {/* {data.map((item, index) => {
+                {data.map((item, index) => {
                     return (
-                        <SwiperSlide key={index} className="slider__item" >
-                            <Link to="/" className="slider__title">{item}</Link>
+                        <SwiperSlide key={index} className="" >
+                            <Link to={`category/`} className="slider__item">{item}</Link>
                         </SwiperSlide>
                     );
-                })} */}
-                <SwiperSlide className="category__item">Slide 1</SwiperSlide>
+                })}
+                {/* <SwiperSlide className="category__item">Slide 1</SwiperSlide> 
             
-            </Swiper>
+            </Swiper> */}
 
         </div>
     )

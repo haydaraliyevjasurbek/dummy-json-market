@@ -1,11 +1,14 @@
 :root{
-    --btn-bg-color: #b6b7fd;
+    --btn-bg-color: #E3E6E6;
+    --text-color: #393E46;
 }
-*{
+*:not(img) {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
+    background-color: var(--btn-bg-color);
+    color: var(--text-color);
     // border: 0.0000001px solid red;
 }
 a{

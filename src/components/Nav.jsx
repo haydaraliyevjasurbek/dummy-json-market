@@ -5,9 +5,7 @@ import { CiGrid41 } from "react-icons/ci"; // category icon
 import { IoSearch } from "react-icons/io5"; // search icon
 import { IoMdClose } from "react-icons/io"; // close icon
 import { IoMdCart } from "react-icons/io"; // cart icon
-import { IoIosHeartEmpty } from "react-icons/io"; // like icon
 import store from '../stores/store';
-import Login from './Login';
 import { Link } from 'react-router-dom';
 import Breadcrumb from './ui/Breadcrumb';
 
@@ -22,7 +20,7 @@ function Nav() {
     <nav className="nav container">
       <a href="/">Dummy JSON</a>
       
-      <Link to="/category" className='nav__category-btn'>
+      <Link to="/product" className='nav__category-btn'>
         {category ? <CiGrid41 className='search__icon' /> : <IoMdClose className='search__icon' />} category
       </Link>
 
@@ -39,7 +37,6 @@ function Nav() {
       </div>
     
       <Link to="/cart" className='nav__cart'><IoMdCart /> Savat</Link>
-      <a href="" className='nav__like'><IoIosHeartEmpty /> Tanlanganlar</a>
       <Link to="/login" className='nav__login-btn'>Kirish</Link>
     </nav>
     <Breadcrumb/>

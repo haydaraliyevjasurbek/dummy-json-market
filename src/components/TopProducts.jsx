@@ -3,8 +3,8 @@ import Product from './ui/Product';
 import store from '../stores/store';
 import Loader from './ui/Loader';
 
-function TopProducts() {
-  const { loader, category, categoryObj, setCategoryObj, topRating, setTopRating } = store();
+function TopProducts({productId}) {
+  const { loader,  topRating } = store();
 
   // Nechta mahsulot ko'rsatishni boshqarish uchun state
   const [visibleProducts, setVisibleProducts] = useState(10);
@@ -21,24 +21,22 @@ function TopProducts() {
 
   return (
     <>
-    {visibleProducts < topRating.length && (
+      {visibleProducts < topRating.length && (
         <button onClick={handleShowMore}>Ko'proq ko'rsatish</button>
       )}
-    <div className="product">
-      {/* topRating massiv bo'lsa, map() orqali har bir mahsulotni Product komponentida render qilamiz */}
-      {topRating.slice(0, visibleProducts).map((product, index) => (
-        <Product
-          key={index} // React uchun noyob key
-          name={product.name || product.title} 
-          price={product.price} 
-          rating={product.rating} 
-          imgUrl={product.images[0] || product.image || product.img} 
-        />
-      ))}
-
-      {/* Agar ko'rsatish uchun qolgan mahsulotlar bo'lsa, "Ko'proq ko'rsatish" tugmasini ko'rsatamiz */}
-      
-    </div>
+      <div className="product">
+        {/* topRating massiv bo'lsa, map() orqali har bir mahsulotni Product komponentida render qilamiz */}
+        {topRating.slice(0, visibleProducts).map((product) => (
+          <Product 
+            key={product.id || product.name} // Noyob key sifatida product id yoki name ishlatiladi
+            productId={product.id}
+            name={product.name || product.title}
+            price={product.price}
+            rating={product.rating}
+            imgUrl={product.images[0] || product.image || product.img || 'default-image-url.jpg'} // Default rasm
+          />
+        ))}
+      </div>
     </>
   );
 }

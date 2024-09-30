@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductDetail from './components/ProductDetail';
 import SignUp from './components/SignUp';
+import Footer from './components/Footer';
 function App() {
   const { data, getApi,  } = useApi();
   const {loader, category, categoryObj, setCategoryObj, topRating, setTopRating } = store();
@@ -53,6 +54,7 @@ function App() {
         ))}
       </Routes>
     </Router>
+    <Footer/>
     </div>
   )
 }

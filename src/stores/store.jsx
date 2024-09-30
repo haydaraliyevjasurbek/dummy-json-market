@@ -37,51 +37,60 @@ const store = create((set) => ({
         localStorage.setItem('category-list', JSON.stringify(value));
     },
 
+    // Cart
     cart: JSON.parse(localStorage.getItem('cart')) || [],
 
+    // Savatga mahsulot qo'shish
     addToCart: (product) => set((state) => {
-        const existingProduct = state.cart.find((item) => item.id === product.id);
+        const existingProduct = state.cart.find((item) => item.productId === product.productId);
         let newCart;
+        console.log(state.cart);
 
         if (existingProduct) {
-            // Agar mahsulot mavjud bo'lsa, uning sonini oshiramiz
             newCart = state.cart.map((item) =>
-                item.id === product.id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
+                item.productId === product.productId ? { ...item, quantity: item.quantity + 1 } : item
             );
         } else {
-            // Mahsulot yo'q bo'lsa, uni qo'shamiz
             newCart = [...state.cart, { ...product, quantity: 1 }];
         }
 
-        localStorage.setItem('cart', JSON.stringify(newCart)); // LocalStorage yangilanadi
+        localStorage.setItem('cart', JSON.stringify(newCart));
         return { cart: newCart };
     }),
 
+
+    // Savatdan mahsulotni olib tashlash (miqdorini kamaytirish)
     removeFromCart: (id) => set((state) => {
-        // Faqat mahsulotni miqdorini kamaytiradi
         const newCart = state.cart
             .map((item) =>
                 item.id === id && item.quantity > 1
                     ? { ...item, quantity: item.quantity - 1 }
                     : item
             )
-            .filter((item) => item.quantity > 0); // Mahsulot miqdori 0 bo'lsa, uni o'chirish
+            .filter((item) => item.quantity > 0);
 
         localStorage.setItem('cart', JSON.stringify(newCart)); // LocalStorage yangilanadi
         return { cart: newCart };
     }),
 
     clearFromCart: (id) => set((state) => {
-        // Mahsulotni butunlay o'chirish
         const newCart = state.cart.filter((item) => item.id !== id);
         localStorage.setItem('cart', JSON.stringify(newCart));
         return { cart: newCart };
     }),
 
+
+    // Savatdan mahsulotni to'liq o'chirish
+    clearFromCart: (id) => set((state) => {
+        const newCart = state.cart.filter((item) => item.id !== id);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+        return { cart: newCart };
+    }),
+
+    // Savatdagi umumiy mahsulotlar sonini hisoblash
     totalItems: (cart) => cart.reduce((acc, item) => acc + item.quantity, 0),
 
+    // Savatdagi har xil turdagi mahsulotlar sonini hisoblash
     distinctItems: (cart) => cart.length,
 }));
 

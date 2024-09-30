@@ -7,7 +7,7 @@ const Breadcrumb = () => {
   const pathSegments = location.pathname.split('/').filter((segment) => segment);
 
   return (
-    <nav className="breadcrumb">
+    <nav className="breadcrumb container  ">
       <ul className="breadcrumb__list">
         {location.pathname !== '/' && (
           <li className="breadcrumb__item">

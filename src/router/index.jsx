@@ -4,6 +4,9 @@ import ProductDetail from "../components/ProductDetail";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import Cart from "../pages/Cart";
+import NotFound from "../components/NotFound";
+import Comment from "../pages/Comment";
+import Returns from "../components/Returns";
 
 export const router = [
   {
@@ -12,12 +15,12 @@ export const router = [
     name: "Home",
   },
   {
-    path: "/category",
+    path: "/product",
     element: <Categories/>,
     name: "category",
   },
   {
-    path: "/products/:id",
+    path: "/product/:id",
     element: <ProductDetail />,
     name: "product-name",
   },
@@ -35,5 +38,20 @@ export const router = [
     path: "/sign-up",
     element: <SignUp />,
     name: "kirish",
+  },
+  {
+    path: "/comment",
+    element: <Comment />,
+    name: "comment",
+  },
+  {
+    path: "/returns",
+    element: <Returns />,
+    name: "comment",
+  },
+  {
+    path: "*",
+    element: <NotFound/>,
+    name: "",
   },
 ];
