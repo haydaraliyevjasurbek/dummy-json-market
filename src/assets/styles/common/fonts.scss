@@ -1,4 +1,20 @@
-// @font-face {
+$Montserrat:("Bold",700);
+@each $name,$weight in $Montserrat{
+    @font-face {
+        font-family: "Montserrat";
+        src: url("@/assets/fonts//Montserrat-#{$name}.ttf");
+        font-weight: $weight;
+    }
+}
+$Lato:("Bold",700),("Regular",400),("Light",300);
+@each $name,$weight in $Lato{
+    @font-face {
+        font-family: "Lato";
+        src: url("@/assets/fonts//Montserrat-#{$name}.ttf");
+        font-weight: $weight;
+    }
+}
+// // @font-face {
 //     font-family: 'Inter';
 //     src: url('src/assets/fonts/Inter-Regular.ttf') format('truetype') ;
 //     font-weight: normal;

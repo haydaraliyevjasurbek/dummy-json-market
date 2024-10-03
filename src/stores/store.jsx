@@ -37,10 +37,9 @@ const store = create((set) => ({
         localStorage.setItem('category-list', JSON.stringify(value));
     },
 
-    // Cart
+    // cart
     cart: JSON.parse(localStorage.getItem('cart')) || [],
 
-    // Savatga mahsulot qo'shish
     addToCart: (product) => set((state) => {
         const existingProduct = state.cart.find((item) => item.productId === product.productId);
         let newCart;
@@ -58,8 +57,6 @@ const store = create((set) => ({
         return { cart: newCart };
     }),
 
-
-    // Savatdan mahsulotni olib tashlash (miqdorini kamaytirish)
     removeFromCart: (id) => set((state) => {
         const newCart = state.cart
             .map((item) =>
@@ -69,7 +66,7 @@ const store = create((set) => ({
             )
             .filter((item) => item.quantity > 0);
 
-        localStorage.setItem('cart', JSON.stringify(newCart)); // LocalStorage yangilanadi
+        localStorage.setItem('cart', JSON.stringify(newCart));
         return { cart: newCart };
     }),
 
@@ -79,18 +76,14 @@ const store = create((set) => ({
         return { cart: newCart };
     }),
 
-
-    // Savatdan mahsulotni to'liq o'chirish
     clearFromCart: (id) => set((state) => {
         const newCart = state.cart.filter((item) => item.id !== id);
         localStorage.setItem('cart', JSON.stringify(newCart));
         return { cart: newCart };
     }),
 
-    // Savatdagi umumiy mahsulotlar sonini hisoblash
     totalItems: (cart) => cart.reduce((acc, item) => acc + item.quantity, 0),
 
-    // Savatdagi har xil turdagi mahsulotlar sonini hisoblash
     distinctItems: (cart) => cart.length,
 }));
 

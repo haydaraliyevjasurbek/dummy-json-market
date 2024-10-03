@@ -1,40 +1,52 @@
-import React from 'react'
-import Comment from '../pages/Comment'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
 function Footer() {
   return (
-    <>
-    <Comment/>
-    <div className="footer container">
-      <ul className="footer-data-dummy-json">
-        <li className="footer-data__item">DUMMY JSON</li>
-        <li className="footer-data__item">If you have any questions, we are ready to answer them!</li>
-        <li className="footer-data__item"><a href="tel:+998931923736">+998931923736</a></li>
-        <li className="footer-data__item"><a href="tel:+998903362706">+998903362706</a></li>
-        <li className="footer-data__item">Working time:</li>
-        <li className="footer-data__item">Every day: 09:00 - 21:00</li>
-      </ul>
-      <ul className="footer-payment">
-        <li className="footer-payment__item">Payment methods</li>
-        <li className="footer-payment__item"><img src="payme.png" alt="" /></li>
-        <li className="footer-payment__item"><img src="solfy.png" alt="" /></li>
-        <li className="footer-payment__item"><img src="union.png" alt="" /></li>
-        <li className="footer-payment__item"><img src="uzcard.png" alt="" /></li>
-        <li className="footer-payment__item"><img src="uzum_nasiya.png" alt="" /></li>
-        <li className="footer-payment__item"><img src="visa.webp" alt="" /></li>
-      </ul>
-      <ul className="footer-customers">
-        <li className="footer-customers__item">For customers</li>
-        <li className="footer-customers__item">Leave a comment</li>
-        <li className="footer-customers__item">Vacancies</li>
-        <li className="footer-customers__item">Cooperation</li>
-        <li className="footer-customers__item">Return procedure</li>
-        <li className="footer-customers__item"></li>
-        <li className="footer-customers__item"></li>
-      </ul>
-    </div>
-    </>
-  )
+    <footer className="footer container">
+      <div className="footer__container">
+        <div className="footer__section footer__about">
+          <h3 className="footer__title">About Us</h3>
+          <p className="footer__text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur ratione repellendus corrupti, ab non eveniet praesentium doloremque sequi porro dolorem nulla, asperiores cumque optio quo.
+          </p>
+        </div>
+
+        <div className="footer__section footer__links">
+          <h3 className="footer__title">Quick links</h3>
+          <ul className="footer__list">
+            <li><Link to="/" className="footer__link">Home</Link></li>
+            <li><Link to="/product" className="footer__link">Products</Link></li>
+            <li><Link to="/about" className="footer__link">About Us</Link></li>
+            <li><Link to="/contact" className="footer__link">Communication</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer__section footer__social">
+          <h3 className="footer__title">Follow us</h3>
+          <div className="footer__icons">
+            <div className="footer__icon">
+            <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer" >
+              <FaFacebookSquare style={{ fill: '#B6B7FD', fontSize: '30px' }} />
+            </Link>
+            </div>
+            <div className="footer__icon">
+            <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" >
+              <FaInstagramSquare style={{ fill: '#B6B7FD', fontSize: '30px' }} />
+            </Link>
+            </div>
+            <div className="footer__icon">
+            <Link to="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaSquareXTwitter style={{ fill: '#B6B7FD', fontSize: '30px' }} />
+            </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

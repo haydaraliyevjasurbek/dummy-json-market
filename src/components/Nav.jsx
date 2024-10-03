@@ -18,10 +18,10 @@ function Nav() {
   return (
     <>
     <nav className="nav container">
-      <a href="/">DDummy JSON</a>
+      <a className='nav__logo' href="/">Dummy JSON</a>
       
       <Link to="/product" className='nav__category-btn'>
-        {category ? <CiGrid41 className='search__icon' /> : <IoMdClose className='search__icon' />} category
+        <CiGrid41 className='search__icon' />  <p className='nav__category-name'>{"category".toUpperCase()}</p>
       </Link>
 
       <div className='nav__search-content'>
@@ -31,13 +31,13 @@ function Nav() {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)} // inputdan qiymat olish
         />
-        <button className='nav__search-btn' onClick={() => { setSearchBtn(!searchBtn)}}>
-          {!searchBtn ? <IoSearch className='search__icon' /> : <IoMdClose className='search__icon' />}
+        <button className='nav__search-btn' onClick={() => {setSearchBtn(searchBtn), setSearchText("")}}>
+          {!searchText ? <IoSearch className='search__icon' /> : <IoMdClose className='search__icon' />}
         </button>
       </div>
     
-      <Link to="/cart" className='nav__cart'><IoMdCart /> Savat</Link>
-      <Link to="/login" className='nav__login-btn'>Kirish</Link>
+      <Link to="/cart" className='nav__cart'><IoMdCart /> <p className='nav__cart-name'>Basket</p></Link>
+      <Link to="/login" className='nav__login-btn'>LOGIN</Link>
     </nav>
     <Breadcrumb/>
     </>

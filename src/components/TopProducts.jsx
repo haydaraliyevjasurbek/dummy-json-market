@@ -21,9 +21,6 @@ function TopProducts({productId}) {
 
   return (
     <>
-      {visibleProducts < topRating.length && (
-        <button onClick={handleShowMore}>Ko'proq ko'rsatish</button>
-      )}
       <div className="product">
         {/* topRating massiv bo'lsa, map() orqali har bir mahsulotni Product komponentida render qilamiz */}
         {topRating.slice(0, visibleProducts).map((product) => (
@@ -36,6 +33,9 @@ function TopProducts({productId}) {
             imgUrl={product.images[0] || product.image || product.img || 'default-image-url.jpg'} // Default rasm
           />
         ))}
+        {visibleProducts < topRating.length && (
+        <button className="top__rating-btn"onClick={handleShowMore}>AGAIN</button>
+      )}
       </div>
     </>
   );

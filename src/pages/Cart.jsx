@@ -10,7 +10,7 @@ function Cart() {
 console.log(cart)
   return (
     <div className="cart container">
-      <h2>Savat</h2>
+      <h2 className="title">Savat</h2>
 
 
       <div className="cart__container">

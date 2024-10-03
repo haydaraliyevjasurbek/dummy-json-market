@@ -12,9 +12,10 @@ import Home from './pages/Home';
 import ProductDetail from './components/ProductDetail';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
+import Search from './components/Search';
 function App() {
   const { data, getApi,  } = useApi();
-  const {loader, category, categoryObj, setCategoryObj, topRating, setTopRating } = store();
+  const {loader, category, categoryObj, setCategoryObj, topRating, setTopRating, searchText, setSearchText } = store();
   useEffect(() => {
     getApi('products?limit=194');
   }, []); 
@@ -51,10 +52,10 @@ function App() {
       <Routes>
         {router.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
-        ))}
+          ))}
       </Routes>
+        <Footer/>
     </Router>
-    <Footer/>
     </div>
   )
 }

@@ -14,13 +14,13 @@ import { EffectCube, Autoplay } from 'swiper/modules';
 import Loader from './ui/Loader';
 import { Link } from 'react-router-dom';
 function Slider() {
-    const {loader, topRating, categoryObj, setCategoryObj, categoryList, setCategoryList, } = store();
+    const { loader, topRating, categoryObj, setCategoryObj, categoryList, setCategoryList, } = store();
     const { data, getApi, loading } = useApi();
     useEffect(() => {
         getApi(`products/category-list`);
 
     }, []);
-
+    let barand
     return (
         <div>
             {loader && <Loader />}
@@ -34,8 +34,8 @@ function Slider() {
                     shadowScale: 0.94,
                 }}
                 loop={true}
-                autoplay={{ 
-                    delay: 2500, 
+                autoplay={{
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 modules={[EffectCube, Autoplay]}
@@ -44,7 +44,10 @@ function Slider() {
                 {topRating.map((item, index) => {
                     return (
                         <SwiperSlide key={index} className="slider__item" >
-                            <p className="slider__title">{item.brand ? item.brand : item.category}</p>
+                            <p className="slider__title">
+                            {item.brand ? item.brand.replace("-", " ").toUpperCase() : item.title.replace("-", " ").toUpperCase()}
+                            </p>
+
                             <img
                                 src={item.images[0]}
                                 alt=""
@@ -56,7 +59,7 @@ function Slider() {
 
 
             </Swiper>}
-            
+
 
 
             {/* <Swiper

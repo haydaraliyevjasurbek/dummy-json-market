@@ -5,8 +5,9 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import Cart from "../pages/Cart";
 import NotFound from "../components/NotFound";
-import Comment from "../pages/Comment";
 import Returns from "../components/Returns";
+import Contact from "../components/Contact";
+import About from "../pages/About";
 
 export const router = [
   {
@@ -40,13 +41,13 @@ export const router = [
     name: "kirish",
   },
   {
-    path: "/comment",
-    element: <Comment />,
+    path: "/contact",
+    element: <Contact />,
     name: "comment",
   },
   {
-    path: "/returns",
-    element: <Returns />,
+    path: "/about",
+    element: <About />,
     name: "comment",
   },
   {

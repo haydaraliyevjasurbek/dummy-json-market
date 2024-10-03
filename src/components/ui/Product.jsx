@@ -36,12 +36,11 @@ function Product({ productId, id, name, price, rating, imgUrl }) {
         <div className="product__star">
           {/* Yulduzlarni mapping qilish */}
           {stars.map((isActive, index) => (
-            <FaStar key={index} color={isActive ? 'yellow' : 'gray'} />
-          ))}
+        <FaStar key={index} fill={isActive ? '#b6b7fd' : 'gray'} />
+      ))}
         </div>
-
       </Link>
-      <button className="product__get-btn" onClick={handleAddToCart}>Savatga</button> {/* Savatga qo'shish tugmasi */}
+      <button className="product__get-btn" onClick={handleAddToCart}>BASKET</button> {/* Savatga qo'shish tugmasi */}
     </div>
   );
 }

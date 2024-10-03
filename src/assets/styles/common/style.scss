@@ -16,7 +16,7 @@
     width: 100px;
     height: 100px;
     border: 10px solid transparent;
-    border-bottom-color: #149A03;
+    border-bottom-color: #B6B7FD;
     border-radius: 50%;
     animation: infinite .5s linear loader;
   }
@@ -34,23 +34,44 @@
 
 // nav
 .nav {
-  margin: 20px 0px;
+  margin: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
+
+  &__logo {
+    min-width: 150px;
+    max-width: 150px;
+    width: 100%;
+    color: var(--text-color);
+    font-family: "Lato";
+    font-weight: 700;
+    font-size: 24px;
+  }
 
   &__category-btn {
     width: 100px;
-    padding: 10px 12px;
+    padding: 9px 12px;
+    gap: 4px;
     border-radius: 4px;
-    background: #b6b7fd;
+    background: var(--content-bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    .search__icon {
+      fill: var(--text-color);
+    }
+  }
+
+  &__category-name {
+    font-size: 10px;
+    font-weight: 400;
   }
 
   &__search-content {
-    max-width: 800px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -66,18 +87,18 @@
     width: 100%;
     border-radius: 4px;
     height: 20px;
-    padding: 15.8px 16px;
     font-size: 18px;
-  }
+    padding: 8px; // Foydalanuvchi tajribasini yaxshilash uchun padding qo'shildi
 
-  &__search-inp:focus::before {
-    content: " ";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.37);
+    &:focus::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.37);
+    }
   }
 
   &__search-btn {
@@ -94,14 +115,20 @@
     border-radius: 4px;
     background: #b6b7fd;
     display: flex;
+    gap: 4px;
     align-items: center;
     cursor: pointer;
+  }
+
+  &__cart-name {
+    font-size: 12px;
+    font-weight: 400;
   }
 
   &__like {
     padding: 8.4px 10px;
     border-radius: 4px;
-    background: #b6b7fd;
+    background: var(--content-bg-color);
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -111,28 +138,100 @@
     width: 70px;
     padding: 8.2px 12px;
     border-radius: 4px;
-    background: transparent;
-    border: 2px solid #b6b7fd;
-    border-radius: 4px;
+    border: 2px solid var(--content-bg-color);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: transparent;
+    transition: 0.2s;
+    font-size: 12px;
+    color: var(--text-color);
+    font-family: "Lato";
+    font-weight: 400;
+
+    &:hover {
+      background: var(--content-bg-color);
+      transform: scale(1.05);
+    }
   }
+
+  // Mobil dizayn uchun media so'rovi
+  @media (max-width: 768px) {
+    flex-direction: column; // Vertikal joylashish
+    align-items: flex-start; // Chapga tekislang
+    gap: 15px; // Masofani kamaytirish
+
+    &__logo {
+      width: 100%; // Katta joyni to'ldirish
+      text-align: center; // Markazga tekislash
+    }
+
+    &__category-btn,
+    &__cart,
+    &__login-btn {
+      width: 100%; // Katta joyni to'ldirish
+      justify-content: center; // Markazga tekislash
+      margin-top: 10px; // Yuqoridan masofa
+    }
+
+    &__search-content {
+      width: 100%; // Katta joyni to'ldirish
+      flex-direction: column; // Elementlar vertikal joylashishi
+      align-items: stretch; // Harakatlanayotgan joylarni to'ldirish
+    }
+
+    &__search-inp {
+      margin-bottom: 10px; // Quyi elementga masofa
+    }
+  }
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap; // Yangi qatorda tushishi uchun qo'shiladi
+
+  &__content {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap; // Bu qism ham yangi qatorda elementlarni joylashtirish uchun
+  }
+}
+
+.top-rate {
+  color: var(--text-color);
+  font-family: "Lato";
+  font-weight: 700;
+  padding-top: 0px;
+  // font-size: 16px;
 }
 
 .categories {
   display: flex;
-  column-gap: 60px;
-  // justify-content: space-between;
-  height: 100%;
+  column-gap: 30px;
+  padding: 0px 10px;
+  // height: 100%;
 
   &__title {
     display: block;
+    width: 300px;
   }
 
   &__name-list {
-    list-style: circle;
+    // list-style: decimal;
     display: block;
+
+  }
+
+  &__title-link {
+    //k
+    display: block;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #b6b7fd;
 
   }
 
@@ -145,6 +244,7 @@
   &__item-name {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
   }
@@ -156,24 +256,36 @@
 
 .slider {
   text-align: center;
-  border: 1px solid red;
-  margin: 20px 0px;
+  // border: 1px solid red;
+  margin: 20px 0px 0px 0px;
   height: 30px;
   padding: 4px;
   height: 200px;
 
   &__img {
-    width: 100px;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 40px;
   }
 
   &__item {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #B6B7FD;
+    position: relative;
     color: #ffffff88;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background: #131313;
     text-align: center;
     cursor: pointer;
   }
@@ -194,48 +306,91 @@
 }
 
 .top-rate {
-  padding-top: 20px
+  padding: 10px 0px 0px 0px;
+}
+
+.top__rating-btn {
+  width: 100%;
+  padding: 8.2px 12px;
+  border-radius: 4px;
+  background: transparent;
+  border: 2px solid var(--content-bg-color);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: transparent;
+  transition: 0.2s;
+  font-size: 20px;
+  color: var(--text-color);
+  font-family: "Lato";
+  font-weight: 400;
+  margin: 10px auto;
+}
+
+.top__rating-btn:hover {
+  background: var(--content-bg-color);
+  font-size: 20px;
+  font-family: "Lato";
+  font-weight: 700;
 }
 
 .product {
-  padding-top: 20px;
+  
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
+  margin: 0 auto;
 
   &__content {
     max-width: 250px;
     width: 250px;
-    height: 450px;
-    border: 1px solid red;
+    border: 2px solid var(--content-bg-color);
+    border-radius: 5px;
+    height: 100%;
+    max-height: 350px;
     padding: 4px;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 10px;
   }
 
   &__content-img {
-    display: block;
-
     width: 100%;
-    height: 70%;
+    height: 200px; // Tasvirning balandligi
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #B6B7FD; // Orqa fon rangi
   }
 
   &__img {
-    width: 100px;
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
 
+  }
+
+  &__name {
+    padding: 4px 10px;
+    color: #8385fd;
   }
 
   &__price {
     padding: 4px 10px;
+    color: #8385fd;
   }
 
   &__star {
     padding: 4px 10px;
+
   }
 
   &__get-btn {
@@ -243,7 +398,7 @@
     border-radius: 4px;
     padding: 10px 10px;
     background: transparent;
-    border: 2px solid #b6b7fd;
+    border: 2.5px solid #b6b7fd;
     color: #b6b7fd;
   }
 
@@ -254,130 +409,260 @@
     background: #b6b7fd;
     color: #fff;
   }
+
+  &__get-btn:hover {
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 10px;
+    background: #b6b7fd;
+    color: #fff;
+  }
 }
 
-img {
-  width: 50px;
-  border-radius: 4px;
-}
+// img {
+//   width: 50px;
+//   border-radius: 4px;
+// }
 
 .product-detail {
   width: 100%;
   display: flex;
-  align-items: center;
-  // flex-direction: column;
+  gap: 20px; // Rasmlar va matn orasidagi masofa
+  flex-wrap: wrap; // Kichik ekranlar uchun flex elementlarini o'rash
+  padding: 10px 0px;
 
-
-
-  &__img-content{
-    display: flex;
-
-  }
-  &__img-selected {
-    width: 100%;
+  &__img-container {
+    flex: 1; // Tasvir konteyneriga moslashuvchan kenglik
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-      
+    gap: 10px; // Tanlangan tasvirlar orasidagi masofa
+
+    @media (max-width: 768px) {
+      width: 100%; // Mobil uchun to'liq kenglik
+      flex-direction: row; // Mobil uchun rasm tanlashni yonma-yon qilish
+      gap: 5px;
+    }
   }
-  &__selected-btn{
+
+  &__img-selected {
+    display: flex;
+    flex-direction: row; // Rasm tanlovini yonma-yon joylashtirish
+    gap: 10px; // Tanlov tugmalari orasidagi masofa
+    overflow-x: auto; // Rasmlar yonma-yon chiqishi uchun scroll qo'shildi
+    max-height: 110px; // Tanlangan rasm ro'yxatini cheklash
+    background-color: #B6B7FD;
+    border-radius: 8px;
+
+    @media (max-width: 768px) {
+      max-height: none;
+    }
+  }
+
+  &__selected-btn {
     border: none;
     outline: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 5px;
+    width: auto;
+
+
+
+    .product-detail__selected-img {
+      width: 100px; // Rasmlarning kattaligini oshirish
+      height: 100px;
+      object-fit: cover; // Tasvir hajmiga moslashishi
+      border-radius: 8px;
+      border: 2px solid #B6B7FD;
+      background: #fff;
+
+      @media (max-width: 768px) {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &__img-content {
+    width: 100%;
+    height: 500px; // Tasvirning balandligini oshirish
     display: flex;
     align-items: center;
-    background: transparent;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #B6B7FD;
+
+    img {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover; // Tasvir ichidagi ma'lumotlarni saqlab qolish
+      filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1)); // Tasvirga soya qo'shish
+    }
+
+    @media (max-width: 768px) {
+      height: 300px; // Mobil uchun tasvir balandligini kamaytirish
+    }
   }
 
-  &__img {
-    width: 400px;
-  }
+  &-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; // Matn elementlari orasidagi masofa
+    background-color: #B6B7FD;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
 
-  &__title {
-    font-size: 24px;
-    font-weight: bold;
-    // margin: 10px 0;
-  }
+    @media (max-width: 768px) {
+      width: 100%; // Mobil uchun kenglik
+    }
 
-  &__description {
-    font-size: 16px;
-    // margin: 10px 0;
-    // text-align: center;
-    color: #555; // Lighter color for description
-  }
+    &__price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
 
-  &__price {
-    font-size: 20px;
-    font-weight: bold;
-    // color: #e91e63; // A highlight color for the price
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #555;
+    }
   }
 }
+
+
+
+
 // login
 .login {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff; // Oq fon rangi
+  border-radius: 10px;
+  border: 1px solid #B6B7FD;
+  // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Oq fon uchun soyalar
+  text-align: center;
+
   &__title {
     font-size: 24px;
+    font-weight: bold;
+    color: #B6B7FD;
     margin-bottom: 20px;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
+    gap: 15px; // Form elementlari orasidagi masofa
   }
 
   &__input {
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    border: 2px solid #b6b7fd; // Haqiqiy rangda chegaralar
     border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+      border-color: #333; // Kursor fokusi uchun quyuq rang
+    }
   }
 
   &__button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #b6b7fd; // Tugma uchun asosiy rang
+    color: #ffffff; // Matn rangi
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: #9495e6; // Hover uchun quyuqroq rang
     }
   }
+
+
 }
+
+
 // signup
 .signup {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
   &__title {
-    font-size: 24px;
+    font-size: 28px;
+    color: #B6B7FD;
     margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #B6B7FD;
+    // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   &__input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 16px;
     border-radius: 5px;
+    border: 1px solid #d0d0d0;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+
+    &:focus {
+      border-color: #B6B7FD;
+    }
   }
 
   &__button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #B6B7FD;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 
-    &:hover {
-      background-color: #0056b3;
-    }
+
   }
 }
+
+
+
 // breadcrumb
 .breadcrumb {
+  background-color: #FFFFFF; // Orqa fon rangini oq qilib belgilash
+  padding: 15px 20px; // O'ng va chapdan joy belgilash
+  border-radius: 5px; // Yumshoq burchaklar
+  // box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); // Yumshoq soya
+
   &__list {
     display: flex;
     list-style: none;
@@ -391,19 +676,22 @@ img {
     &:not(:last-child)::after {
       content: "/";
       margin-left: 10px;
+      color: #B6B7FD; // Razm qismi rangini ko'k qilib belgilash
     }
   }
 
   &__link {
     text-decoration: none;
-    color: #007bff;
-    transition: color 0.2s;
+    color: #B6B7FD; // Link rangini ko'k qilib belgilash
+    transition: color 0.5s ease-in-out; // Rang o'zgarishini yumshoq qilish
 
     &:hover {
-      color: #0056b3;
+      color: darken(#B6B7FD, 100%); // Ustiga kursor kelganda to'qroq rang
     }
   }
 }
+
+
 // cart
 .cart {
 
@@ -421,5 +709,211 @@ img {
     display: block;
     width: 100%;
     border: 1px solid red;
+  }
+}
+
+//about
+.about {
+  padding: 0px 10px;
+
+  &__container {
+    border: 1px solid #B6B7FD;
+    padding: 10px 10px;
+    border-radius: 5px;
+
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+    font-family: "Lato";
+    font-weight: 700;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #B6B7FD;
+  }
+
+  &__team {
+    margin-top: 10px;
+
+    &-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #000;
+      font-family: "Lato";
+      font-weight: 700;
+    }
+
+    &-description {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #B6B7FD;
+    }
+  }
+
+
+
+}
+
+//contact
+.contact {
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &__form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  &__textarea {
+    resize: vertical;
+    height: 150px;
+  }
+
+  &__button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+
+//footer
+.footer {
+  margin-top: auto;
+  margin-bottom: 0px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-family: "Lato";
+  font-weight: 400;
+
+  &__container {
+    padding: 20px 10px;
+    border: 2px solid #B6B7FD;
+    border-radius: 5px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #000;
+    font-family: "Lato";
+    font-weight: 700;
+  }
+
+  &__text {
+    color: #B6B7FD;
+
+  }
+
+  &__description {
+    max-width: 300px;
+  }
+
+  &__links,
+  &__about,
+  &__social {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    flex-direction: column;
+
+    li {
+      margin-bottom: 10px;
+
+    }
+  }
+
+  &__link {
+    color: #000; // O'zgartirish: havolalar rangini oq rangga o'zgartirdik
+    text-decoration: none;
+    color: #B6B7FD;
+
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__social-link {
+    color: #000; // O'zgartirish: ijtimoiy havolalar rangini oq rangga o'zgartirdik
+    font-size: 20px;
+
+    &:hover {
+      color: #1e90ff; // O'zgartirish: hover effekti rangini o'zgartirdik
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__copyright {
+    font-size: 12px;
+  }
+
+  &__icons {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__icon {
+
+    display: flex;
   }
 }
