@@ -20,10 +20,10 @@ function Contact() {
 
   return (
     <div className="contact">
-      <h1 className="contact__title">Bog'lanish</h1>
+      <h1 className="contact__title">Connection</h1>
       <form className="contact__form" onSubmit={handleSubmit}>
         <div className="contact__form-group">
-          <label htmlFor="name" className="contact__label">Ismingiz:</label>
+          <label htmlFor="name" className="contact__label">Your name:</label>
           <input
             type="text"
             id="name"
@@ -45,7 +45,7 @@ function Contact() {
           />
         </div>
         <div className="contact__form-group">
-          <label htmlFor="message" className="contact__label">Xabar:</label>
+          <label htmlFor="message" className="contact__label">Message:</label>
           <textarea
             id="message"
             className="contact__textarea"
@@ -54,7 +54,7 @@ function Contact() {
             required
           ></textarea>
         </div>
-        <button type="submit" className="contact__button">Yuborish</button>
+        <button type="submit" className="contact__button">Sending</button>
       </form>
     </div>
   );

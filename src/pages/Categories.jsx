@@ -58,7 +58,6 @@ function Categories() {
                             {filteredProducts.length > 0 ? (
                                 filteredProducts.map((item, index) => (
                                  
-                                        <Link key={index} to={`/products/${item.id}`} className="categories__title-linkk">
                                             <Product
                                                 key={item.id} // Noyob key sifatida product id yoki name ishlatiladi
                                                 name={item.name || item.title}
@@ -67,7 +66,6 @@ function Categories() {
                                                 rating={item.rating}
                                                 imgUrl={item.images[0] || item.image || item.img || 'default-image-url.jpg'} // Default rasm
                                             />
-                                        </Link>
                                   
                                 ))
                             ) : (

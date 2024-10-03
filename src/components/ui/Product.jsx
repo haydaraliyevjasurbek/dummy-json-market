@@ -16,7 +16,7 @@ function Product({ productId, id, name, price, rating, imgUrl }) {
   // Mahsulotni savatga qo'shish funksiyasi
   const handleAddToCart = () => {
     const product = {
-      id, // mahsulotning id-si
+      productId, // mahsulotning id-si
       name,
       price,
       imgUrl

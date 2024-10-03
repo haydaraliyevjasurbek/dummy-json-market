@@ -46,10 +46,12 @@ const store = create((set) => ({
         console.log(state.cart);
 
         if (existingProduct) {
+            // Mahsulot mavjud bo'lsa, sonini oshir
             newCart = state.cart.map((item) =>
                 item.productId === product.productId ? { ...item, quantity: item.quantity + 1 } : item
             );
         } else {
+            // Yangi mahsulot qo'sh
             newCart = [...state.cart, { ...product, quantity: 1 }];
         }
 
@@ -59,27 +61,25 @@ const store = create((set) => ({
 
     removeFromCart: (id) => set((state) => {
         const newCart = state.cart
-            .map((item) =>
-                item.id === id && item.quantity > 1
-                    ? { ...item, quantity: item.quantity - 1 }
-                    : item
-            )
-            .filter((item) => item.quantity > 0);
+            .map((item) => {
+                console.log(item); // item ni konsolga chiqarish
+                if (item && item.productId === id) {
+                    // Mahsulot sonini kamaytirish
+                    return { ...item, quantity: item.quantity - 1 };
+                }
+                return item; // item ni qaytarish
+            })
+            .filter((item) => item && item.quantity > 0); // `item` ning mavjudligini tekshirish
 
-        localStorage.setItem('cart', JSON.stringify(newCart));
+        localStorage.setItem('cart', JSON.stringify(""));
         return { cart: newCart };
     }),
 
-    clearFromCart: (id) => set((state) => {
-        const newCart = state.cart.filter((item) => item.id !== id);
-        localStorage.setItem('cart', JSON.stringify(newCart));
-        return { cart: newCart };
-    }),
 
-    clearFromCart: (id) => set((state) => {
-        const newCart = state.cart.filter((item) => item.id !== id);
-        localStorage.setItem('cart', JSON.stringify(newCart));
-        return { cart: newCart };
+    clearFromCart: () => set((state) => {
+        // Barcha mahsulotlarni o'chirish
+        localStorage.setItem('cart', JSON.stringify([]));
+        return { cart: [] };
     }),
 
     totalItems: (cart) => cart.reduce((acc, item) => acc + item.quantity, 0),

@@ -7,7 +7,6 @@ import { IoMdClose } from "react-icons/io"; // close icon
 import { IoMdCart } from "react-icons/io"; // cart icon
 import store from '../stores/store';
 import { Link } from 'react-router-dom';
-import Breadcrumb from './ui/Breadcrumb';
 
 function Nav() {
   const { category, setCategory, searchBtn, setSearchBtn, searchText, setSearchText } = store();
@@ -39,8 +38,7 @@ function Nav() {
       <Link to="/cart" className='nav__cart'><IoMdCart /> <p className='nav__cart-name'>Basket</p></Link>
       <Link to="/login" className='nav__login-btn'>LOGIN</Link>
     </nav>
-    <Breadcrumb/>
-    </>
+      </>
   );
 }
 

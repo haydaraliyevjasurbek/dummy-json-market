@@ -13,7 +13,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h2 className="login__title">Kirish</h2>
+      <h2 className="login__title">Login</h2>
       <form className="login__form" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -26,13 +26,13 @@ const Login = () => {
         <input
           type="password"
           className="login__input"
-          placeholder="Parol"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" className="login__button">Kirish</button>
-        <Link to="/sign-up" className="breadcrumb__link">Ro'yxatdan o'tish</Link>
+        <button type="submit" className="login__button">Send</button>
+        <Link to="/sign-up" className="breadcrumb__link">Sign up</Link>
       </form>
     </div>
   );

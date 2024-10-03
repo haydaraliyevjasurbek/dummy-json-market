@@ -14,9 +14,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signup">
+    <div className="container signup">
       <form className="signup__form" onSubmit={handleSubmit}>
-      <h2 className="signup__title">Ro'yxatdan o'tish</h2>
+      <h2 className="signup__title">Sign up</h2>
         <input
           type="email"
           className="signup__input"
@@ -28,7 +28,7 @@ const SignUp = () => {
         <input
           type="password"
           className="signup__input"
-          placeholder="Parol"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -36,13 +36,13 @@ const SignUp = () => {
         <input
           type="password"
           className="signup__input"
-          placeholder="Parolni tasdiqlang"
+          placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit" className="signup__button">Ro'yxatdan o'tish</button>
-        <Link to="/login" className="breadcrumb__link">Kirish</Link>
+        <button type="submit" className="signup__button">Sign up</button>
+        <Link to="/login" className="breadcrumb__link">Login</Link>
       </form>
     </div>
   );

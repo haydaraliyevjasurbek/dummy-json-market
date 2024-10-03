@@ -30,20 +30,6 @@ function App() {
     }
   }, [data]);
 
-
-
-  // useEffect(() => {
-  //   const handleBeforeUnload = () => {
-  //     const userAlet = alert("Chiqmoqchimisiz?")
-  //     localStorage.clear(); 
-  //   };
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, []);
-
-  const [login, setLogin] = useState(false)
   return (
     <div className="container">
     <Router>

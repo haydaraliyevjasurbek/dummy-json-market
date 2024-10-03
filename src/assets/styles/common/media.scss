@@ -1,0 +1,49 @@
+// Mobil dizayn uchun media so'rovi
+@media (max-width: 768px) {
+    .nav {
+    flex-direction: column; // Vertikal joylashish
+    align-items: flex-start; // Chapga tekislang
+    gap: 15px; // Masofani kamaytirish
+
+    &__logo {
+      width: 100%; // Katta joyni to'ldirish
+      text-align: center; // Markazga tekislash
+    }
+
+    &__category-btn,
+    &__cart,
+    &__login-btn {
+      width: 100%; // Katta joyni to'ldirish
+      justify-content: center; // Markazga tekislash
+      margin-top: 10px; // Yuqoridan masofa
+    }
+
+    &__search-content {
+      width: 100%; // Katta joyni to'ldirish
+      flex-direction: column; // Elementlar vertikal joylashishi
+      align-items: stretch; // Harakatlanayotgan joylarni to'ldirish
+    }
+
+    &__search-inp {
+      margin-bottom: 10px; // Quyi elementga masofa
+    }
+  }
+  .product-detail {
+    &__img-container {
+        width: 100%; // Mobil uchun to'liq kenglik
+      flex-direction: row; // Mobil uchun rasm tanlashni yonma-yon qilish
+      gap: 5px;
+    }
+
+    &__img-content {
+      height: 300px;
+    }
+    &-text {
+      width: 100%; 
+    }
+  }
+  .product-detail__selected-img {
+    width: 70px;
+        height: 70px;
+  }
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import Slider from "../components/Slider"
 import TopProducts from '../components/TopProducts'
-import useApi from "../hook/useApi"
 import Search from '../components/Search'
 import store from '../stores/store';
 function Home() {
@@ -9,7 +8,6 @@ function Home() {
   const textAlign = {
     textAlign: 'center'
   }
-  const { getData, data } = useApi()
   return (
     <div className="container home">
       {searchText ? <Search /> :

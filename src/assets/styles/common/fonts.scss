@@ -1,36 +1,26 @@
-$Montserrat:("Bold",700);
-@each $name,$weight in $Montserrat{
+$Montserrat: (
+    "Regular": 400,
+    "Bold": 700
+);
+
+@each $name, $weight in $Montserrat {
     @font-face {
         font-family: "Montserrat";
-        src: url("@/assets/fonts//Montserrat-#{$name}.ttf");
+        src: url("src/assets/fonts/Montserrat-#{$name}.ttf") format('truetype');
         font-weight: $weight;
     }
 }
-$Lato:("Bold",700),("Regular",400),("Light",300);
-@each $name,$weight in $Lato{
+
+$Lato: (
+    "Bold": 700,
+    "Regular": 400,
+    "Light": 300
+);
+
+@each $name, $weight in $Lato {
     @font-face {
         font-family: "Lato";
-        src: url("@/assets/fonts//Montserrat-#{$name}.ttf");
+        src: url("src/assets/fonts/Lato-#{$name}.ttf") format('truetype');
         font-weight: $weight;
     }
 }
-// // @font-face {
-//     font-family: 'Inter';
-//     src: url('src/assets/fonts/Inter-Regular.ttf') format('truetype') ;
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-// $Inter: ("Bold": 700,
-//     "Regular": 400,
-//     "Light": 300,
-//     "BoldItalic": 750);
-
-// @each $name,
-// $weight in $Inter {
-//     @font-face {
-//         font-family: "Inter";
-//         src: url("../../fonts/Inter-#{$name}.ttf");
-//         font-weight: $weight;
-//     }
-// }

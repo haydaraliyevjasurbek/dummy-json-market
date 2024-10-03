@@ -56,10 +56,14 @@
     gap: 4px;
     border-radius: 4px;
     background: var(--content-bg-color);
-    color: var(--text-color);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: #333; 
 
     .search__icon {
       fill: var(--text-color);
@@ -155,35 +159,7 @@
     }
   }
 
-  // Mobil dizayn uchun media so'rovi
-  @media (max-width: 768px) {
-    flex-direction: column; // Vertikal joylashish
-    align-items: flex-start; // Chapga tekislang
-    gap: 15px; // Masofani kamaytirish
 
-    &__logo {
-      width: 100%; // Katta joyni to'ldirish
-      text-align: center; // Markazga tekislash
-    }
-
-    &__category-btn,
-    &__cart,
-    &__login-btn {
-      width: 100%; // Katta joyni to'ldirish
-      justify-content: center; // Markazga tekislash
-      margin-top: 10px; // Yuqoridan masofa
-    }
-
-    &__search-content {
-      width: 100%; // Katta joyni to'ldirish
-      flex-direction: column; // Elementlar vertikal joylashishi
-      align-items: stretch; // Harakatlanayotgan joylarni to'ldirish
-    }
-
-    &__search-inp {
-      margin-bottom: 10px; // Quyi elementga masofa
-    }
-  }
 }
 
 .search {
@@ -244,9 +220,9 @@
   &__item-name {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
   }
 }
 
@@ -336,7 +312,7 @@
 }
 
 .product {
-  
+
   padding-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -436,12 +412,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px; // Tanlangan tasvirlar orasidagi masofa
-
-    @media (max-width: 768px) {
-      width: 100%; // Mobil uchun to'liq kenglik
-      flex-direction: row; // Mobil uchun rasm tanlashni yonma-yon qilish
-      gap: 5px;
-    }
   }
 
   &__img-selected {
@@ -453,9 +423,6 @@
     background-color: #B6B7FD;
     border-radius: 8px;
 
-    @media (max-width: 768px) {
-      max-height: none;
-    }
   }
 
   &__selected-btn {
@@ -476,10 +443,6 @@
       border: 2px solid #B6B7FD;
       background: #fff;
 
-      @media (max-width: 768px) {
-        width: 70px;
-        height: 70px;
-      }
     }
   }
 
@@ -500,10 +463,6 @@
       object-fit: cover; // Tasvir ichidagi ma'lumotlarni saqlab qolish
       filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1)); // Tasvirga soya qo'shish
     }
-
-    @media (max-width: 768px) {
-      height: 300px; // Mobil uchun tasvir balandligini kamaytirish
-    }
   }
 
   &-text {
@@ -515,10 +474,6 @@
     background-color: #B6B7FD;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
-
-    @media (max-width: 768px) {
-      width: 100%; // Mobil uchun kenglik
-    }
 
     &__price {
       font-size: 18px;
@@ -545,12 +500,12 @@
 
 // login
 .login {
-  width: 100%;
-  margin: 0 auto;
-  padding: 30px;
+  width: 100% -10px;
+  margin: 10px;
+  padding: 10px;
   background-color: #ffffff; // Oq fon rangi
   border-radius: 10px;
-  border: 1px solid #B6B7FD;
+  border: 2px solid #B6B7FD;
   // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Oq fon uchun soyalar
   text-align: center;
 
@@ -622,7 +577,7 @@
     background-color: #FFFFFF;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid #B6B7FD;
+    border: 2px solid #B6B7FD;
     // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
@@ -694,23 +649,127 @@
 
 // cart
 .cart {
+  background-color: #ffffff; // oraq fon
+  padding: 10px;
+  // margin: 0px;
 
-  border: 1px solid red;
-  gap: 20px;
-  width: 100%;
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Soyali effekt
+  .conatiner {
+    border-radius: 8px; // Burchaklarni yumshatish
+    border: 2px solid #b6b7fd;
+    padding: 10px;
+    
+
+  }
 
   &__container {
     display: flex;
-    width: 100%;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px; // Mahsulotlar o'rtasidagi bo'shliq
   }
 
   &__item {
-    display: block;
+    display: flex;
+    justify-content: space-between; // Xususiyatlarni bir-biridan ajratish
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #b6b7fd; // Mahsulotlar o'rtasida chiziq
+    border-radius: 5px; // Burchaklarni yumshatish
+    background-color: #f9f9f9; // Mahsulotlar fon
+    transition: background-color 0.3s ease; // O'tish effekti
+
+    &:hover {
+      background-color: #f1f1f1; // Hover effekti
+    }
+  }
+
+  &__item-name {
+    font-family: "Lato", sans-serif;
+    font-weight: map-get($Lato, "Regular");
+    font-size: 16px; // Matn o'lchami
+    color: #b6b7fd; // Matn rangi
+  }
+
+  &__item-price {
+    font-family: "Lato", sans-serif;
+    font-weight: map-get($Lato, "Bold");
+    font-size: 16px; // Matn o'lchami
+    color: #b6b7fd; // Narx rangi
+  }
+
+  &__item-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px; // Tugmalar o'rtasidagi bo'shliq
+
+    button {
+      background-color: #b6b7fd; // Tugma foni
+      color: #ffffff; // Tugma matni
+      border: none;
+      border-radius: 5px; // Tugma burchaklari
+      padding: 8px 12px; // Tugma ichidagi bo'shliq
+      cursor: pointer; // Kursor ko'rinishi
+
+      &:hover {
+        background-color: darken(#b6b7fd, 10%); // Hover effekti
+      }
+    }
+    
+  }
+
+  .title {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: map-get($Lato, "Bold");
+    font-size: 18px; // Sarlavha o'lchami
+    color: #333; // Sarlavha rangi
+  }
+
+  &__delete-all {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: map-get($Lato, "Bold");
+    font-size: 16px; // Sarlavha o'lchami
+    color: #333; // Sarlavha rangi
+    border: 1px solid #b6b7fd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
     width: 100%;
-    border: 1px solid red;
+    &:hover {
+      background-color: darken(#b6b7fd, 10%);
+    }
   }
 }
+
+
+$product-bg-color: #ffffff; // oraq fon
+$title-font-color: #b6b7fd; // font rangi
+$title-font-size: 18px; // title o'lchami
+$text-font-size: 16px; // text o'lchami
+
+.product-not-available {
+  background-color: $product-bg-color;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+
+  &__title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: $title-font-size;
+    color: $title-font-color;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: $text-font-size;
+    color: #333; // Qo'shimcha rang
+  }
+}
+
 
 //about
 .about {
