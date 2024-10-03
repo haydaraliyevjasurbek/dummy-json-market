@@ -823,11 +823,15 @@ $text-font-size: 16px; // text o'lchami
 
 //contact
 .contact {
+  margin: 0px -20px 0px 20px;
+  border-top: 2px solid #B6B7FD;
   &__title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 18px;
+    margin-bottom: 10px;
   }
-
+  .t{
+    text-align: center
+  }
   &__form {
     display: flex;
     flex-direction: column;
@@ -863,13 +867,13 @@ $text-font-size: 16px; // text o'lchami
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #B6B7FD;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: darken(#b6b7fd, 10%);
     }
   }
 }

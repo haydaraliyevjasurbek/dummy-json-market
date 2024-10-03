@@ -19,8 +19,8 @@ function Contact() {
   };
 
   return (
-    <div className="contact">
-      <h1 className="contact__title">Connection</h1>
+    <div className="container contact"> 
+      <h1 className="contact__title title t">Connection</h1>
       <form className="contact__form" onSubmit={handleSubmit}>
         <div className="contact__form-group">
           <label htmlFor="name" className="contact__label">Your name:</label>
