@@ -12,7 +12,12 @@
     background-color: var(--btn-bg-color);
     color: var(--text-color);
 }
-
+img, p, h1, h2, h3, h4, h5, h6, a, button, input, select, textarea, span, strong{
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+  }
 .title {
     color: var(--text-color);
     font-family: "Lato";
