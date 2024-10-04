@@ -5,7 +5,6 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import Cart from "../pages/Cart";
 import NotFound from "../components/NotFound";
-import Returns from "../components/Returns";
 import Contact from "../components/Contact";
 import About from "../pages/About";
 

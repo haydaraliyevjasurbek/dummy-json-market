@@ -1,5 +1,4 @@
 import React from 'react';
-// import './About.scss'; // SCSS faylingizni kiritish, agar mavjud bo'lsa
 
 function About() {
     return (

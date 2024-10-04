@@ -41,8 +41,8 @@
   gap: 30px;
 
   &__logo {
-    min-width: 150px;
-    max-width: 150px;
+    min-width: 160px;
+    max-width: 160px;
     width: 100%;
     color: var(--text-color);
     font-family: "Lato";
@@ -52,18 +52,17 @@
 
   &__category-btn {
     width: 100px;
-    padding: 9px 12px;
+    padding: 12px 12px;
     gap: 4px;
     border-radius: 4px;
     background: var(--content-bg-color);
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    
+    border: none;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 10px;
-    color: #333; 
+    font-size: 12px;
+    color: #333;
 
     .search__icon {
       fill: var(--text-color);
@@ -203,12 +202,18 @@
   }
 
   &__title-link {
-    //k
     display: block;
-    width: 300px;
+    width: 250px;
     padding: 5px;
-    border: 1px solid #b6b7fd;
-
+    border: 2px solid #b6b7fd;
+    border-radius: 5px;
+    margin-bottom:5px;
+    color: #b6b7fd;
+    transition: .4s;
+    &:hover{
+      background: #B6B7FD;
+      color: #000;
+    }
   }
 
   &__item-content {
@@ -394,18 +399,12 @@
     color: #fff;
   }
 }
-
-// img {
-//   width: 50px;
-//   border-radius: 4px;
-// }
-
 .product-detail {
   width: 100%;
   display: flex;
   gap: 20px; // Rasmlar va matn orasidagi masofa
   flex-wrap: wrap; // Kichik ekranlar uchun flex elementlarini o'rash
-  padding: 10px 0px;
+  padding: 10px 10px;
 
   &__img-container {
     flex: 1; // Tasvir konteyneriga moslashuvchan kenglik
@@ -433,12 +432,10 @@
     padding: 5px;
     width: auto;
 
-
-
     .product-detail__selected-img {
-      width: 100px; // Rasmlarning kattaligini oshirish
+      width: 100px; 
       height: 100px;
-      object-fit: cover; // Tasvir hajmiga moslashishi
+      object-fit: cover; 
       border-radius: 8px;
       border: 2px solid #B6B7FD;
       background: #fff;
@@ -448,7 +445,7 @@
 
   &__img-content {
     width: 100%;
-    height: 500px; // Tasvirning balandligini oshirish
+    height: 500px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -460,8 +457,8 @@
       width: auto;
       height: 100%;
       max-width: 100%;
-      object-fit: cover; // Tasvir ichidagi ma'lumotlarni saqlab qolish
-      filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1)); // Tasvirga soya qo'shish
+      object-fit: cover; 
+      filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1)); 
     }
   }
 
@@ -470,7 +467,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px; // Matn elementlari orasidagi masofa
+    gap: 15px; 
     background-color: #B6B7FD;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
@@ -495,18 +492,14 @@
   }
 }
 
-
-
-
 // login
 .login {
   width: 100% -10px;
   margin: 10px;
   padding: 10px;
-  background-color: #ffffff; // Oq fon rangi
+  background-color: #ffffff;
   border-radius: 10px;
   border: 2px solid #B6B7FD;
-  // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Oq fon uchun soyalar
   text-align: center;
 
   &__title {
@@ -519,25 +512,25 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 15px; // Form elementlari orasidagi masofa
+    gap: 15px;
   }
 
   &__input {
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #b6b7fd; // Haqiqiy rangda chegaralar
+    border: 2px solid #b6b7fd;
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease-in-out;
 
     &:focus {
-      border-color: #333; // Kursor fokusi uchun quyuq rang
+      border-color: #333;
     }
   }
 
   &__button {
-    background-color: #b6b7fd; // Tugma uchun asosiy rang
-    color: #ffffff; // Matn rangi
+    background-color: #b6b7fd;
+    color: #ffffff;
     padding: 12px;
     font-size: 18px;
     font-weight: bold;
@@ -547,13 +540,17 @@
     transition: background-color 0.3s ease-in-out;
 
     &:hover {
-      background-color: #9495e6; // Hover uchun quyuqroq rang
+      background-color: #9495e6;
+    }
+
+    &-signup {
+      color: #9495e6;
+      font-family: "Lato";
+      font-size: 18px;
+      font-weight: bold;
     }
   }
-
-
 }
-
 
 // signup
 .signup {
@@ -575,10 +572,9 @@
     gap: 15px;
     width: 100%;
     background-color: #FFFFFF;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     border: 2px solid #B6B7FD;
-    // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   &__input {
@@ -597,32 +593,36 @@
   &__button {
     background-color: #B6B7FD;
     color: #FFFFFF;
+    font-family: "Lato";
     font-size: 18px;
     font-weight: bold;
-    padding: 12px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 
-
+    &-login {
+      color: #9495e6;
+      font-family: "Lato";
+      font-size: 18px;
+      font-weight: bold;
+    }
   }
 }
 
-
-
 // breadcrumb
 .breadcrumb {
-  background-color: #FFFFFF; // Orqa fon rangini oq qilib belgilash
-  padding: 15px 20px; // O'ng va chapdan joy belgilash
-  border-radius: 5px; // Yumshoq burchaklar
-  // box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); // Yumshoq soya
+  background-color: #FFFFFF;
+  padding: 15px 10px;
+  border-radius: 5px;
 
   &__list {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
+    align-items: center;
   }
 
   &__item {
@@ -630,112 +630,113 @@
 
     &:not(:last-child)::after {
       content: "/";
+      font-size: 20px;
+      font-weight: 700;
       margin-left: 10px;
-      color: #B6B7FD; // Razm qismi rangini ko'k qilib belgilash
+      color: #B6B7FD;
     }
   }
 
   &__link {
+    border-radius: 5px;
+    padding: 5px;
     text-decoration: none;
-    color: #B6B7FD; // Link rangini ko'k qilib belgilash
-    transition: color 0.5s ease-in-out; // Rang o'zgarishini yumshoq qilish
+    color: #B6B7FD;
+    transition: .8s;
+    border: 2px solid #b6b7fd;
 
     &:hover {
-      color: darken(#B6B7FD, 100%); // Ustiga kursor kelganda to'qroq rang
+      color: #000;
+      background: #B6B7FD;
     }
   }
 }
 
-
 // cart
 .cart {
-  background-color: #ffffff; // oraq fon
+  background-color: #ffffff;
   padding: 10px;
-  // margin: 0px;
 
-  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Soyali effekt
   .conatiner {
-    border-radius: 8px; // Burchaklarni yumshatish
+    border-radius: 8px;
     border: 2px solid #b6b7fd;
     padding: 10px;
-    
-
   }
 
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 10px; // Mahsulotlar o'rtasidagi bo'shliq
+    gap: 10px;
   }
 
   &__item {
     display: flex;
-    justify-content: space-between; // Xususiyatlarni bir-biridan ajratish
+    justify-content: space-between;
     align-items: center;
     padding: 15px;
-    border: 1px solid #b6b7fd; // Mahsulotlar o'rtasida chiziq
-    border-radius: 5px; // Burchaklarni yumshatish
-    background-color: #f9f9f9; // Mahsulotlar fon
-    transition: background-color 0.3s ease; // O'tish effekti
+    border: 1px solid #b6b7fd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #f1f1f1; // Hover effekti
+      background-color: #f1f1f1;
     }
   }
 
   &__item-name {
     font-family: "Lato", sans-serif;
     font-weight: map-get($Lato, "Regular");
-    font-size: 16px; // Matn o'lchami
-    color: #b6b7fd; // Matn rangi
+    font-size: 16px;
+    color: #b6b7fd;
   }
 
   &__item-price {
     font-family: "Lato", sans-serif;
     font-weight: map-get($Lato, "Bold");
-    font-size: 16px; // Matn o'lchami
-    color: #b6b7fd; // Narx rangi
+    font-size: 16px;
+    color: #b6b7fd;
   }
 
   &__item-counter {
     display: flex;
     align-items: center;
-    gap: 10px; // Tugmalar o'rtasidagi bo'shliq
+    gap: 10px;
 
     button {
-      background-color: #b6b7fd; // Tugma foni
-      color: #ffffff; // Tugma matni
+      background-color: #b6b7fd;
+      color: #ffffff;
       border: none;
-      border-radius: 5px; // Tugma burchaklari
-      padding: 8px 12px; // Tugma ichidagi bo'shliq
-      cursor: pointer; // Kursor ko'rinishi
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
 
       &:hover {
-        background-color: darken(#b6b7fd, 10%); // Hover effekti
+        background-color: darken(#b6b7fd, 10%);
       }
     }
-    
   }
 
   .title {
     text-align: center;
     font-family: "Lato", sans-serif;
     font-weight: map-get($Lato, "Bold");
-    font-size: 18px; // Sarlavha o'lchami
-    color: #333; // Sarlavha rangi
+    font-size: 18px;
+    color: #333;
   }
 
   &__delete-all {
     text-align: center;
     font-family: "Lato", sans-serif;
     font-weight: map-get($Lato, "Bold");
-    font-size: 16px; // Sarlavha o'lchami
-    color: #333; // Sarlavha rangi
+    font-size: 16px;
+    color: #333;
     border: 1px solid #b6b7fd;
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
     width: 100%;
+
     &:hover {
       background-color: darken(#b6b7fd, 10%);
     }
@@ -743,47 +744,40 @@
 }
 
 
-$product-bg-color: #ffffff; // oraq fon
-$title-font-color: #b6b7fd; // font rangi
-$title-font-size: 18px; // title o'lchami
-$text-font-size: 16px; // text o'lchami
+$product-bg-color: #ffffff;
+$title-font-color: #b6b7fd;
+$title-font-size: 18px;
+$text-font-size: 16px;
 
 .product-not-available {
-  background-color: $product-bg-color;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  gap: 20px;
 
   &__title {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: $title-font-size;
-    color: $title-font-color;
-    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
   }
-
   &__text {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: $text-font-size;
-    color: #333; // Qo'shimcha rang
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0px 0px;
   }
 }
-
 
 //about
 .about {
   padding: 0px 10px;
 
   &__container {
-    border: 1px solid #B6B7FD;
+    border: 2px solid #B6B7FD;
     padding: 10px 10px;
     border-radius: 5px;
-
   }
 
   &__title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #000;
@@ -801,7 +795,7 @@ $text-font-size: 16px; // text o'lchami
     margin-top: 10px;
 
     &-title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       margin-bottom: 10px;
       color: #000;
@@ -816,22 +810,21 @@ $text-font-size: 16px; // text o'lchami
       color: #B6B7FD;
     }
   }
-
-
-
 }
 
 //contact
 .contact {
-  margin: 0px -20px 0px 20px;
-  border-top: 2px solid #B6B7FD;
+  padding-bottom: 10px;
+
   &__title {
     font-size: 18px;
     margin-bottom: 10px;
   }
-  .t{
+
+  .t {
     text-align: center
   }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -878,6 +871,11 @@ $text-font-size: 16px; // text o'lchami
   }
 }
 
+// main
+main {
+  min-height: calc(100vh - 360px);
+
+}
 
 //footer
 .footer {
@@ -910,7 +908,6 @@ $text-font-size: 16px; // text o'lchami
 
   &__text {
     color: #B6B7FD;
-
   }
 
   &__description {
@@ -922,7 +919,6 @@ $text-font-size: 16px; // text o'lchami
   &__social {
     flex: 1 1 200px;
     margin-bottom: 20px;
-
   }
 
   &__list {
@@ -932,15 +928,13 @@ $text-font-size: 16px; // text o'lchami
 
     li {
       margin-bottom: 10px;
-
     }
   }
 
   &__link {
-    color: #000; // O'zgartirish: havolalar rangini oq rangga o'zgartirdik
+    color: #000;
     text-decoration: none;
     color: #B6B7FD;
-
 
     &:hover {
       text-decoration: underline;
@@ -953,11 +947,11 @@ $text-font-size: 16px; // text o'lchami
   }
 
   &__social-link {
-    color: #000; // O'zgartirish: ijtimoiy havolalar rangini oq rangga o'zgartirdik
+    color: #000;
     font-size: 20px;
 
     &:hover {
-      color: #1e90ff; // O'zgartirish: hover effekti rangini o'zgartirdik
+      color: #1e90ff;
     }
   }
 
@@ -976,7 +970,36 @@ $text-font-size: 16px; // text o'lchami
   }
 
   &__icon {
-
     display: flex;
+  }
+}
+.not-found{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  gap: 20px;
+  &__title{
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &__message{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0px 0px;
+  }
+  &__link{
+    margin:10px;
+    border: 2px solid #b6b7fd;
+    margin: 0 auto;
+    color: #b6b7fd;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: .5s;
+    &:hover{
+      background: #B6B7FD;
+      color: #000;
+    }
   }
 }

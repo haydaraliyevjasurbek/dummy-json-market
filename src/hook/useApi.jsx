@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import store from '../stores/store';
 
-
 function useApi() {
   const { loader, setLoader } = store();
   const [data, setdata] = useState([]);

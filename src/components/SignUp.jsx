@@ -11,17 +11,15 @@ const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Email va parolni oldindan tekshirish
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
-    // Auth0 ro'yxatdan o'tish jarayonini boshlash
     loginWithRedirect({
       screen_hint: 'signup',
-      email, // Email maydoni
-      password // Agar siz Auth0 dan o'z autentifikatsiyangizni boshqarayotgan bo'lsangiz
+      email, 
+      password 
     });
   };
 
@@ -53,8 +51,8 @@ const SignUp = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit" className="signup__button">Sign up with Auth0</button>
-        <Link to="/login" className="breadcrumb__link">Login</Link>
+        <button type="submit" className="signup__button">Sign up</button>
+        <Link to="/login" className="signup__button-login">Login</Link>
       </form>
     </div>
   );

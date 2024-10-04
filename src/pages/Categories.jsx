@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useApi from '../hook/useApi';
-import store from '../stores/store';
 import Loader from '../components/ui/Loader';
 import Product from '../components/ui/Product';
 
@@ -9,24 +8,15 @@ function Categories() {
     const listStyle = {
         listStyle: 'none',
     };
-    
     const { data, getApi, loading } = useApi();
-
     const [selectedCategory, setSelectedCategory] = useState(null);
-
-    // Mahsulotlar ro'yxatini olish
     useEffect(() => {
         getApi(`products?limit=194`);
-        
     }, []);
 
-    // Mahsulotlardan kategoriyalarni olish
     const products = data && data.products ? data.products : [];
     const uniqueCategories = [...new Set(products.map(item => item.category))].sort((a, b) => a.localeCompare(b));
-
-    // Tanlangan kategoriya uchun mahsulotlarni filtr qilish
     const filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) : [];
-
     return (
         <div className='categories'>
             <div className="categories__title">
@@ -36,7 +26,7 @@ function Categories() {
                         uniqueCategories.map((category, index) => (
                             <li
                                 key={index}
-                                onClick={() => setSelectedCategory(category)} // Kategoriya bosilganda o'rnatiladi
+                                onClick={() => setSelectedCategory(category)}
                             >
                                 <Link href="#" className="categories__title-link">
                                     {category.replace("-", " ").toUpperCase()}
@@ -48,7 +38,6 @@ function Categories() {
                     )}
                 </ul>
             </div>
-
             <div className="categories__item-content">
                 {(selectedCategory && (
                     <>
@@ -59,14 +48,13 @@ function Categories() {
                                 filteredProducts.map((item, index) => (
                                  
                                             <Product
-                                                key={item.id} // Noyob key sifatida product id yoki name ishlatiladi
+                                                key={item.id} 
                                                 name={item.name || item.title}
                                                 productId={item.id}
                                                 price={item.price}
                                                 rating={item.rating}
-                                                imgUrl={item.images[0] || item.image || item.img || 'default-image-url.jpg'} // Default rasm
+                                                imgUrl={item.images[0] || item.image || item.img || 'fav.png'} 
                                             />
-                                  
                                 ))
                             ) : (
                                 <li className="title">Mahsulot mavjud emas.</li>

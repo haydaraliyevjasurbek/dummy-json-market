@@ -4,7 +4,7 @@ import TopProducts from '../components/TopProducts'
 import Search from '../components/Search'
 import store from '../stores/store';
 function Home() {
-  const { loader, category, categoryObj, setCategoryObj, topRating, setTopRating, searchText, setSearchText } = store();
+  const { searchText, setSearchText } = store();
   const textAlign = {
     textAlign: 'center'
   }

@@ -13,7 +13,6 @@ function ProductDetail() {
         const savedProduct = localStorage.getItem('product_item');
         return savedProduct ? JSON.parse(savedProduct) : {};
     });
-
     useEffect(() => {
         getApi(`products/${id}`);
     }, [id]);
@@ -24,25 +23,19 @@ function ProductDetail() {
             localStorage.setItem('product_item', JSON.stringify(data));
         }
     }, [data, id]);
-
     if (loading) {
         return <Loader />;
     }
-
     const [num, setNum] = useState(0);
-
-    // Mahsulotni savatga qo'shish funksiyasi
     const handleAddToCart = () => {
         const productToAdd = {
-            productId: product.id, // mahsulotning id-si
-            name: product.title, // mahsulot nomi
-            price: product.price, // mahsulot narxi
-            imgUrl: product.images?.[num] // tanlangan rasm
+            productId: product.id, 
+            name: product.title, 
+            price: product.price, 
+            imgUrl: product.images?.[num] 
         };
-        addToCart(productToAdd); // Mahsulotni savatga qo'shish
-        
+        addToCart(productToAdd);
     };
-
     return (
         <>
             {loader && <Loader />}

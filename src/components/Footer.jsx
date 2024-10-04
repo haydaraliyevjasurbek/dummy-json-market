@@ -13,7 +13,6 @@ function Footer() {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur ratione repellendus corrupti, ab non eveniet praesentium doloremque sequi porro dolorem nulla, asperiores cumque optio quo.
           </p>
         </div>
-
         <div className="footer__section footer__links">
           <h3 className="footer__title">Quick links</h3>
           <ul className="footer__list">
@@ -23,7 +22,6 @@ function Footer() {
             <li><Link to="/contact" className="footer__link">Communication</Link></li>
           </ul>
         </div>
-
         <div className="footer__section footer__social">
           <h3 className="footer__title">Follow us</h3>
           <div className="footer__icons">

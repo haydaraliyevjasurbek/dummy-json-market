@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import './Contact.scss'; // SCSS faylingizni kiritish, agar mavjud bo'lsa
 
 function Contact() {
   const [name, setName] = useState('');
@@ -8,11 +7,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ma'lumotlarni jo'natish yoki saqlash bo'yicha logika
-    console.log({ name, email, message });
-    alert('Xabaringiz muvaffaqiyatli yuborildi!');
-
-    // Forma tozalash
     setName('');
     setEmail('');
     setMessage('');

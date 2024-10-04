@@ -6,34 +6,28 @@ import Product from './ui/Product';
 import Loader from './ui/Loader';
 
 function Search() {
-    const { category, setCategory, searchBtn, setSearchBtn, searchText, setSearchText } = store();
+    const { searchText, setSearchText } = store();
     const { data, getApi, loading } = useApi();
 
-    // Mahsulotlar ro'yxatini olish
     useEffect(() => {
         const handler = setTimeout(() => {
             getApi(`products/search?q=${searchText}`);
         }, 1000);
 
-        // Cleanup function to clear the timeout
+
         return () => {
             clearTimeout(handler);
         };
-    }, [searchText]); // searchText o'zgarishi bilan yana chaqiriladi
+    }, [searchText]); 
 
-    // data kelganda konsolga chiqishi
-    useEffect(() => {
-        if (data) {
-            console.log(data);
-        }
-    }, [data]); // data o'zgarishi bilan chaqiriladi
 
     return ( 
         <div className="search ">
             {loading && <Loader />}
             <div className="search__content container">
-                {data && data.products?.length > 0 ? ( // data mavjudligini va mahsulotlar ro'yxatini tekshirish
+                {data && data.products?.length > 0 ? ( 
                     data.products.map((item) => (
+              
                         <Link key={item.id} to={`/products/${item.id}`} className="products__link">
                             <Product
                                 name={item.name || item.title}
@@ -43,9 +37,10 @@ function Search() {
                                 imgUrl={item.images[0] || item.image || item.img || 'default-image-url.jpg'} // Default rasm
                             />
                         </Link>
+              
                     ))
                 ) : (
-                    <p className="title">Mahsulot mavjud emas.</p>
+                    <p className="title">Product not available.</p>
                 )}
             </div>
         </div>
